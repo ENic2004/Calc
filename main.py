@@ -1,6 +1,5 @@
-# Little Command-Line Calc
-# Written by: ENic2004
-
+# Little Command-Line Calc, Written by: ENic2004
+# See github for more Informarions
 #Import 2nd File
 from operations import ops
 
@@ -15,9 +14,6 @@ class cl:
             cl.inputmgr()
             ops.add(x, y)
             cl.main()
-        if f == '':
-            print("Not known Function!")
-            cl.main()
         else:
             print("Not known Function!")
             cl.main()
@@ -26,6 +22,10 @@ class cl:
         global y
         x = int(input("First Number: "))
         y = int(input("Second Number: "))
+    def space(x):
+        while x > 0:
+            print()
+            x = x - 1
 
 #Start MainLoop
 #------ DO NOT PUT CODE BELOW, WILL BE NEVER PROCEED -------
