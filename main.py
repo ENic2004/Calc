@@ -3,12 +3,19 @@
 #Import 2nd File
 from operations import ops
 
+global last
 #Input Manager(cl)
 class cl:
     def main():
-        print("Here the wlctext has to go!")
-        f = int(input("Wich Function to do? "))
-        cl.choose(f)
+        last = cl.main()
+        try:
+            print("Here the wlctext has to go!")
+            f = int(input("Wich Function to do? "))
+            cl.choose(f)
+        except ValueError:
+            print("Wrong Value!")
+            cl.space(2)
+            last()
     def choose(f):
         if f == 1:
             cl.inputmgr()
@@ -18,10 +25,15 @@ class cl:
             print("Not known Function!")
             cl.main()
     def inputmgr():
-        global x
-        global y
-        x = int(input("First Number: "))
-        y = int(input("Second Number: "))
+        try:
+            last = cl.inputmgr()
+            global x
+            global y
+            x = int(input("First Number: "))
+            y = int(input("Second Number: "))
+        except ValueError:
+            print("Wrong Value")
+            cl.space(1)
     def space(x):
         while x > 0:
             print()
