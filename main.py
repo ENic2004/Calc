@@ -1,22 +1,18 @@
 # Little Command-Line Calc, Written by: ENic2004
 # See github for more Informarions
+
 #Import 2nd File
 from operations import ops
 
-global last
 #Input Manager(cl)
 class cl:
     def main():
-        last = cl.main()
-        try:
-            print("Here the wlctext has to go!")
-            f = int(input("Wich Function to do? "))
-            cl.choose(f)
-        except ValueError:
-            print("Wrong Value!")
-            cl.space(2)
-            last()
+        # Mainloop
+        print("Here the wlctext has to go!")
+        f = int(input("Wich Function to do? "))
+        cl.choose(f)
     def choose(f):
+        # Function Chooser
         if f == 1:
             cl.inputmgr()
             ops.add(x, y)
@@ -25,20 +21,27 @@ class cl:
             print("Not known Function!")
             cl.main()
     def inputmgr():
+        # Inputmanager
         try:
-            last = cl.inputmgr()
             global x
             global y
             x = int(input("First Number: "))
             y = int(input("Second Number: "))
         except ValueError:
-            print("Wrong Value")
+            print("Wrong Value!")
             cl.space(1)
+            cl.inputmgr()
     def space(x):
+        #Spacing Function
         while x > 0:
             print()
             x = x - 1
 
 #Start MainLoop
 #------ DO NOT PUT CODE BELOW, WILL BE NEVER PROCEED -------
-cl.main()
+try:
+    cl.main()
+except ValueError:
+    print("Wrong Value!")
+    cl.space(2)
+    cl.main()
